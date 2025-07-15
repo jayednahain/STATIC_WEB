@@ -1,0 +1,248 @@
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1 {
+    color: #0056b3;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #007bff;
+    margin-top: 25px;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+/* --- em Unit Section --- */
+.em-section {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.parent-em {
+    font-size: 16px;
+    /* Base font size for the parent */
+    background-color: #e9f7ff;
+    padding: 1em;
+    /* 1em = 16px here */
+    border: 1px solid #a7d9f7;
+    margin-top: 10px;
+}
+
+.parent-em p {
+    font-size: 1em;
+    /* 1em = 16px here */
+}
+
+.child-em {
+    font-size: 1.2em;
+    /* 1.2 * 16px = 19.2px */
+    background-color: #d0edff;
+    padding: 1em;
+    /* 1em = 19.2px here */
+    margin-top: 10px;
+}
+
+.child-em p {
+    font-size: 1em;
+    /* 1em = 19.2px here */
+}
+
+.grandchild-em {
+    font-size: 1.2em;
+    /* 1.2 * 19.2px = 23.04px */
+    background-color: #badcf7;
+    padding: 1em;
+    /* 1em = 23.04px here */
+    margin-top: 10px;
+}
+
+.grandchild-em p {
+    font-size: 1em;
+    /* 1em = 23.04px here */
+}
+
+.em-button {
+    padding: 0.8em 1.5em;
+    /* Padding relative to button's own font-size */
+    font-size: 18px;
+    /* Set button's font size */
+    margin-top: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* --- rem Unit Section --- */
+/* Set a base font size for the root html element */
+html {
+    font-size: 16px;
+    /* This is the root font size for rem calculations */
+}
+
+.rem-section {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.rem-content p {
+    font-size: 1rem;
+    /* Always 16px (relative to html) */
+    line-height: 1.5;
+}
+
+.large-rem {
+    font-size: 1.5rem;
+    /* 1.5 * 16px = 24px */
+    margin-bottom: 1rem;
+    /* 1 * 16px = 16px */
+}
+
+.rem-box {
+    width: 10rem;
+    /* 10 * 16px = 160px */
+    height: 5rem;
+    /* 5 * 16px = 80px */
+    padding: 1rem;
+    /* 1 * 16px = 16px */
+    background-color: #e0fff0;
+    border: 1px solid #90ee90;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.9rem;
+    /* 0.9 * 16px = 14.4px */
+}
+
+/* --- vw and vh Units Section --- */
+.viewport-section {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.full-width-div {
+    width: 100vw;
+    /* Takes 100% of the viewport width */
+    margin-left: calc(-20px - 1px);
+    /* Counteract body margin and border */
+    background-color: #ffebf0;
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    /* Include padding/border in width calculation */
+    border: 1px solid #ffccdd;
+}
+
+.half-height-div {
+    height: 50vh;
+    /* Takes 50% of the viewport height */
+    width: 80%;
+    /* Example: can combine with other units */
+    background-color: #ebfaff;
+    border: 1px solid #cceeff;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.responsive-text {
+    font-size: 5vw;
+    /* Font size scales with viewport width */
+    text-align: center;
+    margin-top: 30px;
+    color: #8a2be2;
+    background-color: #f7e6ff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.square-box {
+    width: 20vw;
+    /* 20% of viewport width */
+    height: 20vw;
+    /* Making height equal to width based on viewport width */
+    background-color: #ffe0b3;
+    border: 1px solid #ffd59b;
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Combination Section --- */
+.combination-section {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1.5rem;
+    /* Padding relative to root font size */
+    width: clamp(250px, 80vw, 400px);
+    /* Responsive width: min 250px, max 400px, ideally 80% vw */
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    background-color: #f8f8f8;
+}
+
+.card h3 {
+    font-size: 1.8rem;
+    /* Relative to root */
+    margin-bottom: 0.8rem;
+    color: #333;
+}
+
+.card p {
+    font-size: 1rem;
+    /* Relative to root */
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+}
+
+.card button {
+    padding: 0.7em 1.2em;
+    /* Relative to button's own font size */
+    font-size: 1.1rem;
+    /* Relative to root */
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+    background-color: #218838;
+}

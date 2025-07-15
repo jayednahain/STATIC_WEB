@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        span{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            display: inline-block;
+        }
+
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            display: inline;
+        }
+        .div-one{
+            background-color: green;
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+        }
+        .navbar-style{
+            list-style-type: none;
+            align-items: center;
+        }
+        .navbar-style-li{
+            display: inline;
+        }
+        .navbar-style-2{
+            list-style-type: none;
+            display: flex;
+            /* flex-direction: column; */
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <nav style="background-color: tan;
+    padding: 5px 20px 
+    ">
+        <ul class="navbar-style" style="background-color: lightseagreen;">
+            <li class="navbar-style-li">Home</li>
+            <li class="navbar-style-li">Profile</li>
+            <li class="navbar-style-li">Settings</li>
+            <li class="navbar-style-li">Blog</li>  
+        </ul>
+    </nav>
+
+    <nav style="background-color: tan;
+    padding: 5px 20px 
+    ">
+        <ul class="navbar-style-2" style="background-color: lightseagreen;">
+            <li class="">Home</li>
+            <li class="">Profile</li>
+            <li class="">Settings</li>
+            <li class="">Blog</li>  
+        </ul>
+    </nav>
+
+    <div class="div-one">this is div</div>
+    <span>this is span</span>
+    <span>this is span</span>
+    <div>this is div</div>
+
+
+
+
+
+</body>
+</html>

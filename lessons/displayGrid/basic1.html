@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color: black;
+            /* padding: 0px; */
+            /* margin: 0px; */
+            color: aliceblue;
+            font-family: 'Courier New', Courier, monospace;
+
+        }
+        h1,h2,p{
+            padding: 0px;
+            margin: 0px;
+        }
+        .card{
+            border: 0.5px solid;
+            text-align:center;
+        }
+        .grid-container{
+            border: 2px solid red;
+            display: grid;
+            
+            /* fix column space and amount */
+            /* grid-template-columns: repeat(5,200px); */
+            
+            /* fit columns auto : auto-fit */
+            /* grid-template-columns: repeat(auto-fit,200px); */
+
+            /* distribute equal space among columns */
+            /* grid-template-columns: repeat(auto-fit,1fr); */
+
+
+            /* distribute equal space among fixed column columns*/
+            /* grid-template-columns: repeat(3,1fr); */
+
+            /* what happen we want to create column as much as possible */
+            grid-template-columns: repeat(auto-fit ,minmax(300px,1fr));
+
+
+
+
+            gap: 10px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Responsive Grid</h1>
+    <div class="grid-container">
+        <div class="card">
+            <h2>Lorem ipsum </h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, exercitationem officia nemo vitae pariatur dolores! Quas non perspiciatis facilis laudantium animi quidem, consequuntur, </p>
+        </div>
+        <div class="card">
+            <h2>Lorem ipsum </h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, exercitationem officia nemo vitae pariatur dolores! Quas non perspiciatis facilis laudantium animi quidem, consequuntur, </p>
+        </div>
+        <div class="card">
+            <h2>Lorem ipsum </h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, exercitationem officia nemo vitae pariatur dolores! Quas non perspiciatis facilis laudantium animi quidem, consequuntur, </p>
+        </div>
+        <div class="card">
+            <h2>Lorem ipsum </h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, exercitationem officia nemo vitae pariatur dolores! Quas non perspiciatis facilis laudantium animi quidem, consequuntur, </p>
+        </div>
+        <div class="card">
+            <h2>Lorem ipsum </h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, exercitationem officia nemo vitae pariatur dolores! Quas non perspiciatis facilis laudantium animi quidem, consequuntur, </p>
+        </div>
+        <div class="card">
+            <h2>Lorem ipsum </h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, exercitationem officia nemo vitae pariatur dolores! Quas non perspiciatis facilis laudantium animi quidem, consequuntur, </p>
+        </div>
+        <div class="card">
+            <h2>Lorem ipsum </h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, exercitationem officia nemo vitae pariatur dolores! Quas non perspiciatis facilis laudantium animi quidem, consequuntur, </p>
+        </div>
+        <div class="card">
+            <h2>Lorem ipsum </h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, exercitationem officia nemo vitae pariatur dolores! Quas non perspiciatis facilis laudantium animi quidem, consequuntur, </p>
+        </div>
+        <div class="card">
+            <h2>Lorem ipsum </h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, exercitationem officia nemo vitae pariatur dolores! Quas non perspiciatis facilis laudantium animi quidem, consequuntur, </p>
+        </div>
+        <div class="card">
+            <h2>Lorem ipsum </h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, exercitationem officia nemo vitae pariatur dolores! Quas non perspiciatis facilis laudantium animi quidem, consequuntur, </p>
+        </div>
+
+    </div>
+    
+</body>
+</html>

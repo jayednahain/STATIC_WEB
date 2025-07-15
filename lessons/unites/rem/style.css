@@ -1,0 +1,58 @@
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* --- rem Unit Section --- */
+/* Set a base font size for the root html element */
+html {
+    font-size: 10px;
+    /* This is the root font size for rem calculations */
+}
+
+/* OR often: */
+/* html { font-size: 62.5%; } */
+/* This makes 1rem = 10px by default (62.5% of 16px) */
+
+
+.rem-section {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.rem-content p {
+    font-size: 1rem;
+    /* Calculation: 1 * (html's font-size) = 1 * 16px = 16px */
+    line-height: 1.5;
+}
+
+.large-rem {
+    font-size: 1.5rem;
+    /* Calculation: 1.5 * (html's font-size) = 1.5 * 16px = 24px */
+    margin-bottom: 1rem;
+    /* Calculation: 1 * (html's font-size) = 1 * 16px = 16px */
+}
+
+.rem-box {
+    width: 10rem;
+    /* Calculation: 10 * (html's font-size) = 10 * 16px = 160px */
+    height: 5rem;
+    /* Calculation: 5 * (html's font-size) = 5 * 16px = 80px */
+    padding: 1rem;
+    /* Calculation: 1 * (html's font-size) = 1 * 16px = 16px */
+    background-color: #e0fff0;
+    border: 1px solid #90ee90;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.9rem;
+    /* Calculation: 0.9 * (html's font-size) = 0.9 * 16px = 14.4px */
+}

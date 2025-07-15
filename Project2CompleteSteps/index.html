@@ -1,0 +1,88 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Relative Units Practice</title>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+    <h1>Relative Length Units in CSS</h1>
+
+    <div class="em-section">
+        <h2>`em` Unit Example</h2>
+        <p>This paragraph's font size is set using `em` relative to its parent.</p>
+        <div class="parent-em">
+            <p>Parent with a specific font-size.</p>
+            <div class="child-em">
+                <p>Child whose font size is 1.2em (relative to parent).</p>
+                <div class="grandchild-em">
+                    <p>Grandchild whose font size is 1.2em (relative to child).</p>
+                </div>
+            </div>
+            <button class="em-button">Button with 1.5em padding</button>
+        </div>
+    </div>
+
+    <div class="rem-section">
+        <h2>`rem` Unit Example</h2>
+        <p>This paragraph's font size is set using `rem` relative to the root (html) font size.</p>
+        <div class="rem-content">
+            <p>A paragraph with font-size: 1rem.</p>
+            <p class="large-rem">A paragraph with font-size: 1.5rem.</p>
+            <div class="rem-box">
+                <p>This box has a width of 10rem and padding of 1rem.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="viewport-section">
+        <h2>`vw` and `vh` Units Example</h2>
+
+        <div class="full-width-div">
+            <p>This div has a width of 100vw (full viewport width).</p>
+        </div>
+
+        <div class="half-height-div">
+            <p>This div has a height of 50vh (half viewport height).</p>
+        </div>
+
+        <div class="responsive-text">
+            <p>This text has a font size of 5vw, making it scale with viewport width.</p>
+        </div>
+
+        <div class="square-box">
+            <p>This box tries to be a square using `vw` for both width and height.</p>
+        </div>
+    </div>
+
+    <div class="combination-section">
+        <h2>Combination Example</h2>
+        <div class="card">
+            <h3>Responsive Card Title</h3>
+            <p>This card's content might use a mix of units for flexibility.</p>
+            <button>Read More</button>
+        </div>
+    </div>
+</body>
+
+</html>
