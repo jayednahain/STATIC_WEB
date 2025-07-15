@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS em Unit Practice</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            color: #0056b3;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h2,
+        h3,
+        h4,
+        h5 {
+            color: #007bff;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        /* --- Parent Box (Base for em) --- */
+        .parent-box {
+            font-size: 10px;
+            /* Explicitly setting base font size for this parent */
+            background-color: #e9f7ff;
+            border: 2px solid #a7d9f7;
+            padding: 1.5em;
+            /* 1.5 * 16px = 24px (relative to .parent-box's OWN font-size) */
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .parent-box p {
+            font-size: 1em;
+            /* 1 * 16px = 16px (relative to .parent-box's font-size) */
+        }
+
+        /* --- Child Box --- */
+        .child-box {
+            font-size: 1.2em;
+            /* This is 1.2 * (parent-box's font-size of 16px) = 19.2px */
+            background-color: #d0edff;
+            border: 1px dashed #8dc6f5;
+            padding: 1em;
+            /* 1 * 19.2px = 19.2px (relative to .child-box's OWN font-size) */
+            margin-top: 15px;
+            border-radius: 3px;
+        }
+
+        .child-box h4 {
+            font-size: 1em;
+            /* 1 * 19.2px = 19.2px (relative to .child-box's font-size) */
+        }
+
+        .child-box p {
+            font-size: 1em;
+            /* 1 * 19.2px = 19.2px (relative to .child-box's font-size) */
+        }
+
+        .child-button {
+            padding: 0.8em 1.5em;
+            /* Padding relative to button's OWN font-size (which inherits from .child-box) */
+            font-size: 0.9em;
+            /* 0.9 * 19.2px = 17.28px (relative to .child-box's font-size) */
+            margin-top: 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            /* To give it its own line */
+            width: fit-content;
+            /* Make button only as wide as its content */
+        }
+
+
+        /* --- Grandchild Box --- */
+        .grandchild-box {
+            font-size: 1.2em;
+            /* This is 1.2 * (child-box's font-size of 19.2px) = 23.04px */
+            background-color: #badcf7;
+            border: 1px dotted #5ca1d7;
+            padding: 1em;
+            /* 1 * 23.04px = 23.04px (relative to .grandchild-box's OWN font-size) */
+            margin-top: 15px;
+            border-radius: 3px;
+        }
+
+        .grandchild-box h5 {
+            font-size: 1em;
+            /* 1 * 23.04px = 23.04px (relative to .grandchild-box's font-size) */
+        }
+
+        .grandchild-box p {
+            font-size: 1em;
+            /* 1 * 23.04px = 23.04px (relative to .grandchild-box's font-size) */
+        }
+
+        .inline-text {
+            background-color: #ffedcc;
+            padding: 0.5em;
+            /* 0.5 * 23.04px = 11.52px (relative to .inline-text's OWN font-size which inherits from .grandchild-box) */
+            margin-left: 0.5em;
+            border-radius: 3px;
+            display: inline-block;
+            /* To make padding visible */
+            font-size: 0.8em;
+            /* 0.8 * 23.04px = 18.432px */
+        }
+
+
+        /* --- Another Parent Box to show independent base --- */
+        .another-parent-box {
+            font-size: 20px;
+            /* Different base font size for this parent */
+            background-color: #fce7f2;
+            border: 2px solid #f2b5d8;
+            padding: 1.5em;
+            /* 1.5 * 20px = 30px */
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+
+        .child-box-alt {
+            font-size: 1.2em;
+            /* 1.2 * (another-parent-box's font-size of 20px) = 24px */
+            background-color: #f7d2e3;
+            border: 1px dashed #eb9dc6;
+            padding: 1em;
+            /* 1 * 24px = 24px */
+            margin-top: 15px;
+            border-radius: 3px;
+        }
+
+        /* --- Line Height Example --- */
+        .line-height-example p {
+            background-color: #e6ffe6;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-left: 3px solid #66bb6a;
+            line-height: 1.5em;
+            /* Line height always 1.5 times its OWN font size */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>`em` Unit in CSS: Contextual Scaling</h1>
+
+    <div class="container">
+        <h2>Parent Box (Base Font Size)</h2>
+        <p>This paragraph is outside the main `em` demonstration. Its font size is default.</p>
+
+        <div class="parent-box">
+            <h3>I am the Parent (explicit 16px font-size)</h3>
+            <p>My font size is 1em, relative to my parent (.parent-box).</p>
+
+            <div class="child-box">
+                <h4>I am the Child (1.2em font-size)</h4>
+                <p>My font size is 1em, relative to my parent (.child-box).</p>
+                <button class="child-button">Button inside child (padding: 0.8em)</button>
+
+                <div class="grandchild-box">
+                    <h5>I am the Grandchild (1.2em font-size)</h5>
+                    <p>My font size is 1em, relative to my parent (.grandchild-box).</p>
+                    <span class="inline-text">Inline text with 0.5em padding.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="another-parent-box">
+            <h3>Another Parent (larger 20px font-size)</h3>
+            <p>This parent has a larger base font size, watch the children.</p>
+            <div class="child-box-alt">
+                <h4>Child with 1.2em font-size</h4>
+                <p>Its font size is 1em.</p>
+            </div>
+        </div>
+
+        <div class="line-height-example">
+            <h2>Line Height with `em`</h2>
+            <p style="font-size: 20px;">This paragraph has a large font size. Its line height is 1.5em, meaning it's 1.5
+                times *its own* font size.</p>
+            <p style="font-size: 14px;">This paragraph has a smaller font size. Its line height is also 1.5em, so it
+                adapts proportionally.</p>
+        </div>
+
+    </div>
+</body>
+
+</html>
