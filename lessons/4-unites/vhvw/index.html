@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS vw and vh Units Practice</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            /* Reset default body margin to accurately show vw/vh */
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            color: #0056b3;
+            text-align: center;
+            margin: 20px 0 30px 0;
+        }
+
+        h2 {
+            color: #007bff;
+            margin-top: 25px;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        div {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            /* Center text in divs for better visual */
+        }
+
+        /* --- Header Hero Section --- */
+        .header-hero {
+            height: 40vh;
+            /* This div will be 40% of the viewport height */
+            background-color: #e9f7ff;
+            display: flex;
+            /* Use flexbox to vertically center content */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0;
+            /* Remove top margin from default div style */
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        .header-hero p {
+            font-size: 1.2rem;
+            max-width: 80%;
+        }
+
+        /* --- Full Width Text --- */
+        .full-width-text {
+            font-size: 5vw;
+            /* Font size scales directly with viewport width */
+            background-color: #ffebe6;
+            color: #cc3300;
+            padding: 20px;
+            margin: 20px 0;
+            /* Adjust margin to see full width effect */
+            border: 1px solid #ff9977;
+            box-sizing: border-box;
+            /* Ensures padding/border are included in the 100vw width if you set it */
+        }
+
+        /* --- Responsive Square --- */
+        .responsive-square {
+            width: 20vw;
+            /* Width is 20% of viewport width */
+            height: 20vw;
+            /* Height is 20% of viewport width (making it a square) */
+            background-color: #ffecd9;
+            border: 1px solid #ffcc99;
+            margin: 20px auto;
+            /* Center the box horizontally */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2vw;
+            /* Font size also scales with viewport width */
+            color: #a0522d;
+        }
+
+        /* --- Image Gallery --- */
+        .gallery-section {
+            background-color: #f0f8ff;
+            padding: 20px;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25vw, 1fr));
+            /* Each image column roughly 25% vw */
+            gap: 1vw;
+            /* Gap also scales with viewport width */
+            justify-items: center;
+            margin-top: 20px;
+        }
+
+        .image-grid img {
+            width: 25vw;
+            /* Image width is 25% of viewport width */
+            height: auto;
+            max-width: 100%;
+            /* Ensure images don't overflow their grid area */
+            border: 3px solid #007bff;
+            border-radius: 5px;
+        }
+
+        .gallery-section p {
+            font-size: 0.9rem;
+            margin-top: 15px;
+        }
+
+        /* --- Sticky Footer --- */
+        .sticky-footer {
+            min-height: 10vh;
+            /* Minimum height is 10% of viewport height */
+            background-color: #e6ffee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            color: #28a745;
+        }
+
+        /* --- Min/Max Size Example with clamp() --- */
+        .min-max-size {
+            /*
+        clamp(MIN, IDEAL, MAX)
+        MIN: minimum size (300px)
+        IDEAL: ideal size (60% of viewport width)
+        MAX: maximum size (800px)
+    */
+            width: clamp(300px, 60vw, 800px);
+            margin: 40px auto;
+            /* Center it with more vertical space */
+            background-color: #fff3e6;
+            border-color: #ffcc99;
+            padding: 20px;
+            font-size: 1.1rem;
+        }
+
+        /* --- Full Screen Section --- */
+        .full-screen-section {
+            height: 100vh;
+            /* This div will always take 100% of the viewport height */
+            width: 100vw;
+            /* And 100% of the viewport width */
+            background-color: #d1efff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #004d66;
+            font-size: 2rem;
+            margin-top: 40px;
+            margin-bottom: 0;
+            /* Remove default margin */
+            border-radius: 0;
+            /* Remove border-radius */
+            box-shadow: none;
+            /* Remove shadow */
+        }
+
+        .full-screen-section h2 {
+            font-size: 3rem;
+            border-bottom: none;
+            margin-bottom: 10px;
+        }
+
+        .full-screen-section p {
+            max-width: 70vw;
+            /* Paragraph width relative to viewport */
+            font-size: 1.5rem;
+        }
+
+        /* Basic styling for long content */
+        .long-content {
+            background-color: #fcfcfc;
+            border: none;
+            box-shadow: none;
+            padding: 0 15px;
+            margin-bottom: 40px;
+        }
+
+        .long-content p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Viewport Units (`vw` and `vh`) in CSS</h1>
+
+    <div class="header-hero">
+        <h2>Header Section (Height: 40vh)</h2>
+        <p>This section will always take up 40% of the viewport's height.</p>
+    </div>
+
+    <div class="full-width-text">
+        <p>This text has a font-size of 5vw, making it scale directly with the viewport width.</p>
+    </div>
+
+    <div class="responsive-square">
+        <p>This box attempts to be a square using 20vw for both width and height.</p>
+    </div>
+
+    <div class="gallery-section">
+        <h2>Image Gallery (Using vw for image width)</h2>
+        <div class="image-grid">
+            <img src="https://via.placeholder.com/200x150/FF5733/FFFFFF?text=Image+1" alt="Placeholder Image 1">
+            <img src="https://via.placeholder.com/200x150/33FF57/FFFFFF?text=Image+2" alt="Placeholder Image 2">
+            <img src="https://via.placeholder.com/200x150/3357FF/FFFFFF?text=Image+3" alt="Placeholder Image 3">
+        </div>
+        <p>Each image is 25vw wide (adjusted for gap). They scale with viewport width.</p>
+    </div>
+
+    <div class="sticky-footer">
+        <p>This footer has a min-height of 10vh. It will be at least 10% of viewport height.</p>
+    </div>
+
+    <div class="min-max-size">
+        <h2>Content Box with Min/Max (`vw` + `clamp()`)</h2>
+        <p>This box uses `clamp(300px, 60vw, 800px)` for its width. It means: min 300px, ideal 60% viewport width, max
+            800px. Try resizing your browser.</p>
+    </div>
+
+    <div class="long-content">
+        <p>Scroll down to see the next section, so we can test viewport height.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.</p>
+    </div>
+
+    <div class="full-screen-section">
+        <h2>Full Screen Section (Height: 100vh)</h2>
+        <p>This section always takes up 100% of the viewport's height, great for hero sections or landing pages.</p>
+    </div>
+
+</body>
+
+</html>

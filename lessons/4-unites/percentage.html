@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Percentage Unit Practice</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            color: #0056b3;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #007bff;
+            margin-top: 25px;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        div {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Width Example --- */
+        .parent-width {
+            background-color: #e0f2f7;
+            border: 2px solid #a8dadc;
+            padding: 10px;
+        }
+
+        .child-width {
+            width: 50%;
+            /* 50% of .parent-width's content width */
+            background-color: #cce9f5;
+            border: 1px solid #7dc7e4;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .grandchild-width {
+            width: 75%;
+            /* 75% of .child-width's content width */
+            background-color: #b3dff2;
+            border: 1px solid #5ab8e0;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .parent-width-fixed {
+            width: 400px;
+            /* Fixed pixel width parent */
+            background-color: #e0f2f7;
+            border: 2px solid #a8dadc;
+            padding: 10px;
+            margin-top: 30px;
+        }
+
+        .child-width-perc {
+            width: 50%;
+            /* 50% of the 400px parent width = 200px */
+            background-color: #cce9f5;
+            border: 1px solid #7dc7e4;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        /* --- Height Example --- */
+        .height-example {
+            margin-top: 30px;
+        }
+
+        .parent-height {
+            height: 200px;
+            /* Parent has a fixed height */
+            background-color: #f9e6f2;
+            border: 2px solid #f2b5d8;
+            display: flex;
+            /* Use flex to see child height easier */
+            align-items: center;
+            justify-content: center;
+        }
+
+        .child-height {
+            height: 50%;
+            /* 50% of .parent-height's 200px height = 100px */
+            width: 80%;
+            /* Width is still relative to parent width */
+            background-color: #f7d2e3;
+            border: 1px solid #eb9dc6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .parent-height-auto {
+            height: auto;
+            /* Default auto height */
+            background-color: #f9e6f2;
+            border: 2px solid #f2b5d8;
+            margin-top: 20px;
+            min-height: 80px;
+            /* Add min-height to see container */
+        }
+
+        .child-height-noeffect {
+            height: 50%;
+            /* Will NOT calculate to 50% of parent's height if parent height is auto */
+            /* It will simply fit its content height */
+            width: 80%;
+            background-color: #f7d2e3;
+            border: 1px solid #eb9dc6;
+            margin-top: 10px;
+        }
+
+        /* --- Padding and Margin Example --- */
+        .padding-margin-example {
+            margin-top: 30px;
+        }
+
+        .parent-for-spacing {
+            width: 400px;
+            /* Fixed width parent for clarity */
+            background-color: #e6ffe6;
+            border: 2px solid #8bc34a;
+            padding: 10px;
+            margin: 0 auto;
+            /* Center parent */
+        }
+
+        .box-with-padding {
+            background-color: #c8e6c9;
+            border: 1px solid #66bb6a;
+            padding: 5%;
+            /* 5% of .parent-for-spacing's 400px width = 20px on all sides */
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .box-with-margin {
+            background-color: #b9e0ba;
+            border: 1px solid #4caf50;
+            margin: 10%;
+            /* 10% of .parent-for-spacing's 400px width = 40px on all sides */
+            margin-top: 15px;
+            /* Override top for spacing */
+        }
+
+        /* Aspect Ratio Box (common trick) */
+        .aspect-ratio-box {
+            position: relative;
+            width: 100%;
+            /* Take full width of parent */
+            padding-bottom: 56.25%;
+            /* 9 / 16 = 0.5625 = 56.25% of its width */
+            background-color: #ffcccc;
+            border: 2px dashed #ff6666;
+            margin-top: 20px;
+            overflow: hidden;
+            /* Hide overflow if content is larger */
+        }
+
+        .aspect-ratio-box .content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 102, 102, 0.5);
+            /* Semi-transparent overlay */
+        }
+
+        /* --- Font Size Example --- */
+        .font-size-example {
+            margin-top: 30px;
+        }
+
+        .base-font-parent {
+            font-size: 16px;
+            /* Base font size for this section */
+            background-color: #fffacd;
+            border: 2px solid #ffd700;
+            padding: 10px;
+        }
+
+        .perc-font-child {
+            font-size: 120%;
+            /* 120% of parent's (16px) = 19.2px */
+            color: #b8860b;
+        }
+
+        .perc-font-grandchild {
+            font-size: 120%;
+            /* 120% of its parent's (perc-font-child's 19.2px) = 23.04px */
+            color: #8b4513;
+        }
+
+        /* --- Line Height Example --- */
+        .line-height-example {
+            margin-top: 30px;
+        }
+
+        .line-height-example p {
+            background-color: #e0f7fa;
+            border-left: 3px solid #00bcd4;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        .large-text {
+            font-size: 24px;
+            line-height: 150%;
+            /* 150% of its OWN font-size (24px) = 36px */
+        }
+
+        .small-text {
+            font-size: 14px;
+            line-height: 150%;
+            /* 150% of its OWN font-size (14px) = 21px */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Percentage (%) Unit in CSS</h1>
+
+    <div class="width-example">
+        <h2>Width based on Parent</h2>
+        <div class="parent-width">
+            <p>This is the parent div.</p>
+            <div class="child-width">
+                <p>Child: 50% width of its parent.</p>
+            </div>
+            <div class="grandchild-width">
+                <p>Grandchild: 75% width of its parent (the child-width).</p>
+            </div>
+        </div>
+        <div class="parent-width-fixed">
+            <p>Parent with fixed width (400px).</p>
+            <div class="child-width-perc">
+                <p>Child: 50% width of its 400px parent.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="height-example">
+        <h2>Height based on Parent</h2>
+        <div class="parent-height">
+            <p>This parent has a fixed height (200px).</p>
+            <div class="child-height">
+                <p>Child: 50% height of its 200px parent.</p>
+            </div>
+        </div>
+        <div class="parent-height-auto">
+            <p>This parent has auto height.</p>
+            <div class="child-height-noeffect">
+                <p>Child: 50% height. (Will NOT take 50% height here unless content defines it.)</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="padding-margin-example">
+        <h2>Padding and Margin based on Parent Width</h2>
+        <div class="parent-for-spacing">
+            <p>This parent has a specific width (400px).</p>
+            <div class="box-with-padding">
+                <p>Box with 5% padding (all sides relative to parent's 400px width).</p>
+            </div>
+            <div class="box-with-margin">
+                <p>Box with 10% margin (all sides relative to parent's 400px width).</p>
+            </div>
+            <div class="aspect-ratio-box">
+                <div class="content">Content inside aspect ratio box.</div>
+            </div>
+            <p>The empty `aspect-ratio-box` uses `padding-bottom: 56.25%;` to create a 16:9 aspect ratio.</p>
+        </div>
+    </div>
+
+    <div class="font-size-example">
+        <h2>Font Size based on Parent</h2>
+        <div class="base-font-parent">
+            <p>Base font size parent (16px).</p>
+            <p class="perc-font-child">Child text: 120% of parent's font size.</p>
+            <p class="perc-font-grandchild">Grandchild text: 120% of its parent's font size (which is already 120%).</p>
+        </div>
+    </div>
+
+    <div class="line-height-example">
+        <h2>Line Height based on Own Font Size</h2>
+        <p class="large-text">This paragraph has a large font size. Its line height is 150%, relative to its own font
+            size.</p>
+        <p class="small-text">This paragraph has a smaller font size. Its line height is also 150%, but it scales
+            proportionally.</p>
+    </div>
+
+</body>
+
+</html>
