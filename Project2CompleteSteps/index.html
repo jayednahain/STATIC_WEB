@@ -1,88 +1,188 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-
-</body>
-
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Relative Units Practice</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <style>
+        :root {
+            --line--border--fill: #3498db;
+            --line--border--empty: #e0e0e0;
+        }
 
+        .html,
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: end;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            /* flex-direction: column; */
 
+        }
+
+        .container {
+            /* font-size: 20px; */
+            text-align: center;
+            /* border: 2px solid red; */
+
+        }
+
+        .progress-container {
+            width: 350px;
+            max-width: 100%;
+            margin-bottom: 30px;
+            /* border: 2px solid blue; */
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+
+        }
+
+        .progress-container::before {
+            content: '';
+            width: 100%;
+            background-color: var(--line--border--empty);
+            height: 4px;
+            position: absolute;
+            left: 0;
+            transform: translateY(-50%);
+            /* transition: 0.4s ease; */
+            top: 50%;
+            z-index: -1;
+        }
+
+        .progressBar {
+            width: 0;
+            background-color: var(--line--border--fill);
+            height: 4px;
+            position: absolute;
+            left: 0;
+            transform: translateY(-50%);
+            transition: 0.4s ease;
+            top: 50%;
+            z-index: -1;
+        }
+
+        .options-steps {
+            background-color: #fff;
+            border-radius: 50%;
+            height: 30px;
+            width: 30px;
+            border: 3px solid var(--line--border--empty);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.4s ease;
+
+        }
+
+        .active {
+            border-color: var(--line--border--fill);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        }
+
+        .btn {
+            padding: 10px 40px;
+            margin: 5px;
+            border-radius: 5px;
+            background-color: var(--line--border--fill);
+            cursor: pointer;
+            font-size: 14px;
+            border: 0;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn:focus {
+            outline: 0;
+        }
+
+        .btn:disabled {
+            background-color: var(--line--border--empty);
+            cursor: not-allowed;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Relative Length Units in CSS</h1>
+    <div class="container">
+        <div class="progress-container">
+            <div class="progressBar" id="progressBar"></div>
+            <div class="options-steps active">1</div>
+            <div class="options-steps">2</div>
+            <div class="options-steps">3</div>
+            <div class="options-steps">4</div>
+            <div class="options-steps">5</div>
+            <div class="options-steps">6</div>
+        </div>
+        <button id="pre" class="btn">Previous</button>
+        <button id="next" class="btn">next</button>
+        <div>
 
-    <div class="em-section">
-        <h2>`em` Unit Example</h2>
-        <p>This paragraph's font size is set using `em` relative to its parent.</p>
-        <div class="parent-em">
-            <p>Parent with a specific font-size.</p>
-            <div class="child-em">
-                <p>Child whose font size is 1.2em (relative to parent).</p>
-                <div class="grandchild-em">
-                    <p>Grandchild whose font size is 1.2em (relative to child).</p>
-                </div>
-            </div>
-            <button class="em-button">Button with 1.5em padding</button>
         </div>
     </div>
 
-    <div class="rem-section">
-        <h2>`rem` Unit Example</h2>
-        <p>This paragraph's font size is set using `rem` relative to the root (html) font size.</p>
-        <div class="rem-content">
-            <p>A paragraph with font-size: 1rem.</p>
-            <p class="large-rem">A paragraph with font-size: 1.5rem.</p>
-            <div class="rem-box">
-                <p>This box has a width of 10rem and padding of 1rem.</p>
-            </div>
-        </div>
-    </div>
+    <script>
+        const progressBar = document.getElementById('progressBar');
+        const prevButton = document.getElementById('pre');
+        const nextButton = document.getElementById('next');
+        const steps = document.querySelectorAll('.options-steps');
 
-    <div class="viewport-section">
-        <h2>`vw` and `vh` Units Example</h2>
+        let currentStep = 1;
+        const totalSteps = steps.length;
 
-        <div class="full-width-div">
-            <p>This div has a width of 100vw (full viewport width).</p>
-        </div>
+        if (currentStep === 1) {
+            prevButton.disabled = true;
+        }
 
-        <div class="half-height-div">
-            <p>This div has a height of 50vh (half viewport height).</p>
-        </div>
+        nextButton.addEventListener('click', moveForward);
+        prevButton.addEventListener('click', moveBackward);
 
-        <div class="responsive-text">
-            <p>This text has a font size of 5vw, making it scale with viewport width.</p>
-        </div>
+        // Navigation Functions
+        function moveForward() {
+            currentStep = Math.min(currentStep + 1, totalSteps);
+            updateProgress();
+        }
 
-        <div class="square-box">
-            <p>This box tries to be a square using `vw` for both width and height.</p>
-        </div>
-    </div>
+        function moveBackward() {
+            currentStep = Math.max(currentStep - 1, 1);
+            updateProgress();
+        }
 
-    <div class="combination-section">
-        <h2>Combination Example</h2>
-        <div class="card">
-            <h3>Responsive Card Title</h3>
-            <p>This card's content might use a mix of units for flexibility.</p>
-            <button>Read More</button>
-        </div>
-    </div>
+        // Update UI
+        function updateProgress() {
+            steps.forEach((step, index) => {
+                step.classList.toggle('active', index < currentStep);
+            });
+
+            const progress = ((currentStep - 1) / (totalSteps - 1)) * 100;
+            progressBar.style.width = `${progress}%`;
+
+
+
+            if (currentStep === totalSteps) {
+                nextButton.disabled = true;
+            } else {
+                nextButton.disabled = false;
+            }
+            if (currentStep === 1) {
+                prevButton.disabled = true;
+            } else {
+                prevButton.disabled = false;
+            }
+        }
+
+
+    </script>
+
 </body>
+
 
 </html>
