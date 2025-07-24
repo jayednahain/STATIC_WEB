@@ -6,31 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
 
+        h1 {
+            color: #0056b3;
+            padding: 0px;
+            margin: 0px;
+            /* text-align: center; */
+            /* margin-bottom: 30px; */
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="project-style" style="display: flex; flex-direction: column;">
+        <div class=" column">
             <h1>project</h1>
-            <a href="Project1ExpandCards/index.html">Expand cards</a>
-            <a href="Project2CompleteSteps/index.html">complete step</a>
+            <ui>
+                <li><a href="Project1ExpandCards/index.html">Expand cards</a></li>
+                <li><a href="Project2CompleteSteps/index.html">Complete step</a></li>
+                <li><a href="Project3Grid/index.html">Grid</a></li>
+                <li><a href="Project4Flexbox/index.html">Flexbox</a></li>
+            </ui>
         </div>
 
 
 
         <h1>lessons GRID</h1>
-        <div class="lessons" style="display: flex; flex-direction: column;">
+        <div class="lessons">
+
             <div class="layouts">
                 <h1>layouts</h1>
                 <a href="lessons/displayGrid/index.html">BASIC GRID 1</a>
             </div>
-            <div class="units">
+
+            <div class="">
                 <h1>units</h1>
-                <a href="lessons/unites/rem/index.html">rem</a>
-                <a href="lessons/unites/em/index.html">em</a>
-                <!-- <a href="lessons/unites/px/index.html">px</a> -->
+                <ul>
+                    <li><a href="lessons/4-unites/">rem</a></li>
+                    <li><a href="lessons/4-unites/em/index.html">em</a></li>
+                    <li><a href="lessons/4-unites/vhvw/index.html">vhvw</a></li>
+                    <li><a href="lessons/4-unites/percentage.html">percentage</a></li>
+                </ul>
             </div>
 
             <!-- <a href="Project2CompleteSteps/index.html">complete step</a> -->
